@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 #pacman -S python-matplotlib
 
 ser=serial.Serial(
-port='/dev/ttyACM0',
+port='/dev/ttyUSB0',
 baudrate=115200,
 )
 
@@ -26,26 +26,49 @@ ser.isOpen()
 while 1 :
     x = ser.read()
     y = x.decode(encoding='UTF-8')
-    print('debug')
-    if y=='S':
-        pixel =[]
-        while y!='E':
-            x=ser.read()
-            y=x.decode(encoding='UTF-8')
-            pixel.append(y)
-        print('une trame traitée !')
-        datas = ''.join(pixel).split(',')
-        datas.pop()
-        values=list(map(int,datas))
+    #print('debug')
+    try :
+        if y=='S':
+            x = ser.read()
+            y = x.decode(encoding='UTF-8')
+            if y=='1':
+                pixel =[]
+                while y!='E':
+                    x=ser.read()
+                    y=x.decode(encoding='UTF-8')
+                    pixel.append(y)
+                print('une trame traitée !')
+                datas = ''.join(pixel).split(',')
+                datas.pop()
+                values1=list(map(int,datas))
 
-        plt.grid(True)
-        plt.clf()
+                plt.grid(True)
+                plt.clf()
+            plt.subplot(2,1,1)
+            plt.plot(values1)
+            plt.title('Camera 1')
+                #plt.ylim(0,20000)
 
-        plt.plot(values)
-        plt.ylim(0,20000)
+            if y=='2':
+                pixel =[]
+                while y!='E':
+                    x=ser.read()
+                    y=x.decode(encoding='UTF-8')
+                    pixel.append(y)
+                print('une trame traitée !')
+                datas = ''.join(pixel).split(',')
+                datas.pop()
+                values2=list(map(int,datas))
+
+                plt.grid(True)
+                plt.clf()
+            plt.subplot(2,1,2)
+            plt.plot(values2)
+            plt.title('Camera 2')
+                #plt.ylim(0,20000)
+
         plt.show(block=False)
         plt.pause(0.0001)
+    except Exception :
+        print("fail")
 
-        #time.sleep(0.05)
-        #input("entrer")
-        #time.sleep(1)
