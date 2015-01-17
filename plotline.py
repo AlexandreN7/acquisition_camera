@@ -54,12 +54,10 @@ while 1 :
                 values2=list(map(int,datas))
 
         plt.clf()
-        #plt.subplot(2, 1, 1)
-        plt.plot(values1)
+        plt.plot(values1,'ko-')
         plt.title('camera 1')
         plt.ylabel('Contrast')
 
-        #plt.subplot(2, 1, 2)
         plt.plot(values2)
         plt.ylabel('Contrast')
 
