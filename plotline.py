@@ -40,7 +40,7 @@ while 1 :
                 print('une trame traitée !')
                 datas = ''.join(pixel).split(',')
                 datas.pop()
-                values1=list(map(int,datas))
+                values1=list(map(float,datas))
 
             if y=='2':
                 pixel =[]
@@ -51,7 +51,7 @@ while 1 :
                 print('une trame traitée !')
                 datas = ''.join(pixel).split(',')
                 datas.pop()
-                values2=list(map(int,datas))
+                values2=list(map(float,datas))
 
         plt.clf()
         plt.plot(values1,'ko-')
@@ -62,7 +62,7 @@ while 1 :
         plt.ylabel('Contrast')
 
         plt.show(block=False)
-        plt.pause(0.0011)
+        plt.pause(0.00001)
     except Exception :
         print("fail")
 
