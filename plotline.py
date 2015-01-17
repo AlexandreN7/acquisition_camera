@@ -42,13 +42,6 @@ while 1 :
                 datas.pop()
                 values1=list(map(int,datas))
 
-                plt.grid(True)
-                plt.clf()
-            plt.subplot(2,1,1)
-            plt.plot(values1)
-            plt.title('Camera 1')
-                #plt.ylim(0,20000)
-
             if y=='2':
                 pixel =[]
                 while y!='E':
@@ -60,15 +53,18 @@ while 1 :
                 datas.pop()
                 values2=list(map(int,datas))
 
-                plt.grid(True)
-                plt.clf()
-            plt.subplot(2,1,2)
-            plt.plot(values2)
-            plt.title('Camera 2')
-                #plt.ylim(0,20000)
+        plt.clf()
+        #plt.subplot(2, 1, 1)
+        plt.plot(values1)
+        plt.title('camera 1')
+        plt.ylabel('Contrast')
+
+        #plt.subplot(2, 1, 2)
+        plt.plot(values2)
+        plt.ylabel('Contrast')
 
         plt.show(block=False)
-        plt.pause(0.0001)
+        plt.pause(0.0011)
     except Exception :
         print("fail")
 
