@@ -53,6 +53,24 @@ while 1 :
                 datas.pop()
                 values2=list(map(float,datas))
 
+            if y=='3':
+                pixel =[]
+                while y!='E':
+                    x=ser.read()
+                    y=x.decode(encoding='UTF-8')
+                    pixel.append(y)
+                    datas = ''.join(pixel).split(',')
+              #  datas.pop()
+                print('la trame de remi est traitée !')
+                print ('A=',datas[0])
+                print ('B=',datas[1])
+
+
+              #  values2=list(map(float,datas))
+
+
+
+
         plt.clf()
         plt.plot(values1,'ko-')
         plt.title('camera 1')
