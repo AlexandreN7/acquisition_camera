@@ -1,8 +1,7 @@
 # acquisition_camera
 Freescale cup 2015
+Python script which allows to have a feedback from the cameras embedded on the robotics car.
 
-Script permettant de streamer les 2 caméras de la voitures robotisée.
-
-Sur Archlinux :
+On Archlinux :
 installer pylab
 installer pyserial
